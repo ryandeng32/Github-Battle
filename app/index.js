@@ -3,6 +3,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import Popular from "./components/Popular";
 
 // Component
 // State
@@ -12,7 +13,11 @@ import "./index.css";
 class App extends React.Component {
   render() {
     // this is called JSX
-    return <div>Hello Ryan</div>;
+    return (
+      <div className="container">
+        <Popular />
+      </div>
+    );
   }
 }
 
