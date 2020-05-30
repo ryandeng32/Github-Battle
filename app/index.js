@@ -4,7 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import Popular from "./components/Popular";
-
+import Battle from "./components/Battle";
 // Component
 // State
 // Lifecycle
@@ -15,7 +15,7 @@ class App extends React.Component {
     // this is called JSX
     return (
       <div className="container">
-        <Popular />
+        <Battle />
       </div>
     );
   }
