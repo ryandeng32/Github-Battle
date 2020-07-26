@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import {
   FaUserFriends,
   FaFighterJet,
@@ -34,6 +34,10 @@ const Instructions = () => {
 };
 
 const Battle = () => {
+  const [playerOne, setPlayerOne] = useState(null);
+  const [playerTwo, setPlayerTwo] = useState(null);
+  const [battle, setBattle] = useState(false);
+
   return (
     <Fragment>
       <Instructions />
