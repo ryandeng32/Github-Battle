@@ -33,6 +33,37 @@ const Instructions = () => {
   );
 };
 
+const PlayerInput = () => {
+  const [username, setUserName] = useState("");
+  const handleChange = (e) => {
+    setUserName(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.onSubmit(username);
+  };
+  return (
+    <form className="column player" onSubmit={handleSubmit}>
+      <label htmlFor="username" className="player-label">
+        {props.label}
+      </label>
+      <div className="row player-inputs">
+        <input
+          type="text"
+          id="username"
+          className="input-light"
+          placeholder="github username"
+          autoComplete="off"
+          value={username}
+          onChange={handleChange}
+        ></input>
+        <button className="btn dark-btn" type="submit" disabled={!username}>
+          Submit
+        </button>
+      </div>
+    </form>
+  );
+};
 const Battle = () => {
   const [playerOne, setPlayerOne] = useState(null);
   const [playerTwo, setPlayerTwo] = useState(null);
