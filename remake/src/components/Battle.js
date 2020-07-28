@@ -141,6 +141,16 @@ const Battle = () => {
             />
           )}
         </div>
+        {playerOne && playerTwo && (
+          <button
+            className="btn dark-btn btn-space"
+            onClick={() => {
+              setBattle(true);
+            }}
+          >
+            Battle
+          </button>
+        )}
       </div>
     </Fragment>
   );
