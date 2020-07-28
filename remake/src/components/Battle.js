@@ -6,6 +6,7 @@ import {
   FaTimesCircle,
   FaTimes,
 } from "react-icons/fa";
+import Results from "./Result";
 
 const Instructions = () => {
   return (
@@ -106,6 +107,9 @@ const Battle = () => {
       setPlayerTwo(null);
     }
   };
+  if (battle === true) {
+    return <Results playerOne={playerOne} playerTwo={playerTwo} />;
+  }
   return (
     <Fragment>
       <Instructions />
