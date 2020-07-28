@@ -33,7 +33,7 @@ const Instructions = () => {
   );
 };
 
-const PlayerInput = () => {
+const PlayerInput = (props) => {
   const [username, setUserName] = useState("");
   const handleChange = (e) => {
     setUserName(e.target.value);
@@ -92,9 +92,56 @@ const Battle = () => {
   const [playerTwo, setPlayerTwo] = useState(null);
   const [battle, setBattle] = useState(false);
 
+  const handleSubmit = (id, player) => {
+    if (id === "playerOne") {
+      setPlayerOne(player);
+    } else if (id === "playerTwo") {
+      setPlayerTwo(player);
+    }
+  };
+  const handleReset = (id) => {
+    if (id === "playerOne") {
+      setPlayerOne(null);
+    } else if (id === "playerTwo") {
+      setPlayerTwo(null);
+    }
+  };
   return (
     <Fragment>
       <Instructions />
+      <div className="players-container">
+        <h1 className="center-text header-lg">Players</h1>
+        <div className="row space-around">
+          {playerOne === null ? (
+            <PlayerInput
+              label="Player One"
+              onSubmit={(player) => handleSubmit("playerOne", player)}
+            />
+          ) : (
+            <PlayerPreview
+              username={playerOne}
+              label="Player One"
+              onReset={() => {
+                handleReset("playerOne");
+              }}
+            />
+          )}
+          {playerTwo === null ? (
+            <PlayerInput
+              label="Player Two"
+              onSubmit={(player) => handleSubmit("playerTwo", player)}
+            />
+          ) : (
+            <PlayerPreview
+              username={playerTwo}
+              label="Player Two"
+              onReset={() => {
+                handleReset("playerTwo");
+              }}
+            />
+          )}
+        </div>
+      </div>
     </Fragment>
   );
 };
